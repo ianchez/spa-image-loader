@@ -10,12 +10,12 @@ enum FetchAllStatusEnum {
   errors = 'errors',
 };
 
-export interface FethAllState {
+export interface FetchAllState {
   value: PhotoItem[];
   status: FetchAllStatusEnum;
 }
 
-const initialState: FethAllState = {
+const initialState: FetchAllState = {
   value: [],
   status: FetchAllStatusEnum.data,
 };
