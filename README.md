@@ -1,5 +1,17 @@
 # App
 
+## Installation
+
+First, you need to install the dependencies with the following command:
+
+```bash
+npm install
+```
+
+## Configuration
+
+You need to create a `.env` file in the root directory following the [.env.example](./.env.example) file.
+
 ## Available Scripts
 
 In the project directory, you can run:
