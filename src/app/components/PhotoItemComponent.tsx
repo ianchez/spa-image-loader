@@ -4,14 +4,20 @@ import fallbackImage from '../assets/fallback.png';
 
 const PhotoItemComponent = ({
   item,
+  isSelected,
   handleClick
 }: {
   item: PhotoItem,
+  isSelected?: boolean,
   handleClick?: (item: PhotoItem) => void
 }) => (
   <div
     key={item.id}
-    className={`photo-item ${handleClick ? 'clickable' : ''}`}
+    className={`
+      photo-item
+      ${handleClick ? 'clickable' : ''}
+      ${isSelected ? 'selected' : ''}
+    `}
     onClick={() => handleClick?.(item)}
   >
     <img

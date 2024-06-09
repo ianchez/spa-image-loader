@@ -36,6 +36,7 @@
   overflow: hidden;
   height: 15vw;
   width: 15vw;
+  border: 0.12vw solid rgba(0, 0, 0, 0.5);
 }
 
 .photo-item img {
@@ -53,6 +54,10 @@
 .clickable:hover {
   box-shadow: 0 0 8px 4px rgba(0, 0, 0, 0.1);
   cursor: pointer;
+}
+
+.selected {
+  border: 0.2vw solid rgb(150, 8, 8);
 }
 
 button {
