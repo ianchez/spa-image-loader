@@ -9,7 +9,9 @@ function ItemScreen() {
 
   return (
     <section id="item-screen">
-      <PhotoItemComponent item={photoItem} />
+      {photoItem &&
+        <PhotoItemComponent item={photoItem} />
+      }
 
       <button
         className="clickable"
