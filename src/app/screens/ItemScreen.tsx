@@ -9,11 +9,12 @@ function ItemScreen() {
 
   return (
     <section id="item-screen">
-      <PhotoItemComponent
-        photoItem={photoItem}
-      />
+      <PhotoItemComponent item={photoItem} />
 
-      <button onClick={() => navigate("/")}>
+      <button
+        className="clickable"
+        onClick={() => navigate("/")}
+      >
         Go Home
       </button>
     </section>
