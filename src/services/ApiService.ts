@@ -1,9 +1,5 @@
 import HttpClient from './HttpClient';
 
-interface BaseItem {
-  index: number;
-}
-
 class ApiService {
   constructor(
     private httpClient: typeof HttpClient,
@@ -29,13 +25,11 @@ class ApiService {
     }
   }
 
-  public async fetchAllDataAndParse<T extends BaseItem>(
+  public async fetchAllDataAndParse<T>(
     parseItem: ([key, item]: [key: string, item: any]) => T
   ) {
     const data = await this.getData();
-    const dataArray: T[] = Object.entries(data).map(parseItem);
-    const sortedData = dataArray.sort((a, b) => a.index - b.index);
-    return sortedData;
+    return Object.entries(data).map(parseItem);
   }
 }
 

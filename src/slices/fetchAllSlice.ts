@@ -22,7 +22,9 @@ const initialState: FetchAllState = {
 
 export const fetchAllPhotosAsync = createAsyncThunk(
   'FETCH_ALL/PHOTOS',
-  async () => await apiService.fetchAllDataAndParse(parsePhotoItem)
+  async () => await apiService
+    .fetchAllDataAndParse(parsePhotoItem)
+    .then(itemArray => itemArray.sort((a, b) => a.index - b.index)) // sort ascending by index
 );
 
 export const fetchAllSlice = createSlice({
