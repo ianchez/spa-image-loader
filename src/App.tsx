@@ -1,19 +1,29 @@
-import { useAppSelector } from './app/hooks';
 import { useFetchAllData } from './hooks/useFetchAll';
-import { selectAllPhotos } from './features/fetchAll/fetchAllSlice';
-
 import './App.css';
+
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+
+// Screens
+import HomeScreen from './app/screens/HomeScreen';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <HomeScreen />,
+  },
+]);
+
+
 
 function App() {
   useFetchAllData();
-  const data = useAppSelector(selectAllPhotos);
-  console.log(data);
 
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>App</h1>
-      </header>
+      <RouterProvider router={router} />
     </div>
   );
 }
