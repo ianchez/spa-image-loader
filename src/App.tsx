@@ -6,20 +6,40 @@ import './App.css';
 
 type PhotoItem = {
   title: string;
-  description: string;
-  image: string;
+  description?: string;
+  image?: string;
   index: number;
 };
 
-type PhotoCollection = {
-  [key: string]: PhotoItem;
+const isValidUrl = (url: any): boolean => {
+  if (!url) return false;
+  if (typeof url !== 'string') return false;
+
+  try {
+    const parsedUrl = new URL(url);
+    return ['http:', 'https:'].includes(parsedUrl.protocol);
+  } catch (e) {
+    return false;
+  }
 };
 
+const parsePhotoItem = (item: any): PhotoItem => ({
+  title: String(item?.title) || '',
+  description: String(item?.description) || '',
+  image: isValidUrl(item.image) ? item.image : undefined,
+  index: parseInt(item?.index || 0),
+});
+
 const useFetchData = () => {
-  const [data, setData] = useState<PhotoCollection>({});
+  const [data, setData] = useState<PhotoItem[]>([]);
 
   useEffect(() => {
-    apiService.getData().then(data => setData(data)).catch(() => setData({}))
+    apiService.getData()
+      .then(data => {
+          const dataArray = Object.values(data).map(parsePhotoItem);
+          const sortedData = dataArray.sort((a, b) => a.index - b.index);
+          setData(sortedData)
+        });
   }, [])
 
   return data;
