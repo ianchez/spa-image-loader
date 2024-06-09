@@ -1,14 +1,11 @@
 import { useAppSelector } from '../../app/hooks';
 import { selectAllPhotos } from '../../features/fetchAll/fetchAllSlice';
+import fallbackImage from '../assets/fallback.png';
 
 import './index.css';
 
-const FALLBACK_IMAGE = 'https://www.lighting.philips.com.sg/content/dam/b2b-philips-lighting/ecat-fallback.png?wid=93&hei=93&qlt=82';
-
 function HomeScreen() {
   const allPhotos = useAppSelector(selectAllPhotos);
-
-  console.log({ allPhotos })
 
   return (
     <section>
@@ -24,7 +21,7 @@ function HomeScreen() {
               <img
                 src={photoItem.image}
                 alt={photoItem.title}
-                onError={(e) => e.currentTarget.src = FALLBACK_IMAGE}
+                onError={(e) => e.currentTarget.src = fallbackImage}
               />
             </a>
           </div>

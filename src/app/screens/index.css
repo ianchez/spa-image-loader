@@ -31,7 +31,7 @@
 
 .photo-item img {
   aspect-ratio: 1/1;
-  background-image: url('https://www.lighting.philips.com.sg/content/dam/b2b-philips-lighting/ecat-fallback.png?wid=93&hei=93&qlt=82');
+  background-image: url(../assets/loading.gif);
   background-size: cover;
   height: auto;
   margin-left: auto;
