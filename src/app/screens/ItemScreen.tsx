@@ -1,12 +1,17 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
+import PhotoItemComponent from "../components/PhotoItemComponent";
+
+import './index.css';
 
 function ItemScreen() {
   const navigate = useNavigate();
-  const { id } = useParams();
+  const { state: { photoItem } } = useLocation();
 
   return (
-    <section>
-      <h1>Item {id}</h1>
+    <section id="item-screen">
+      <PhotoItemComponent
+        photoItem={photoItem}
+      />
 
       <button onClick={() => navigate("/")}>
         Go Home

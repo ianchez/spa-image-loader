@@ -16,7 +16,7 @@ const router = createBrowserRouter([
     element: <HomeScreen />,
   },
   {
-    path: "/:id/item",
+    path: "/:id/:itemId",
     element: <ItemScreen />,
   },
 ]);

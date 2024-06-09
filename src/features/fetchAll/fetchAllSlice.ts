@@ -24,7 +24,7 @@ export const fetchAllPhotosAsync = createAsyncThunk(
   'FETCH_ALL/PHOTOS',
   async () => {
     const data = await apiService.getData();
-    const dataArray = Object.values(data).map(parsePhotoItem);
+    const dataArray = Object.entries(data).map(parsePhotoItem);
     const sortedData = dataArray.sort((a, b) => a.index - b.index);
     return sortedData;
   }

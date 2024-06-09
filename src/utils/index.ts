@@ -1,7 +1,7 @@
 import { PhotoItem } from "../types";
 
-
-export const parsePhotoItem = (item: any): PhotoItem => ({
+export const parsePhotoItem = ([key, item]: any[]): PhotoItem => ({
+  id: key,
   title: String(item?.title) || '',
   description: String(item?.description) || '',
   image: String(item.image) ?? '',
