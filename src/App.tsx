@@ -8,15 +8,18 @@ import {
 
 // Screens
 import HomeScreen from './app/screens/HomeScreen';
+import ItemScreen from './app/screens/ItemScreen';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <HomeScreen />,
   },
+  {
+    path: "/:id/item",
+    element: <ItemScreen />,
+  },
 ]);
-
-
 
 function App() {
   useFetchAllData();
