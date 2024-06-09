@@ -1,12 +1,16 @@
 import HttpClient from './HttpClient';
 
+interface BaseItem {
+  index: number;
+}
+
 class ApiService {
   constructor(
     private httpClient: typeof HttpClient,
     private apiUrl?: string,
   ) {}
 
-  public async getData(): Promise<any> {
+  private async getData(): Promise<any> {
     try {
       if (!this.apiUrl) {
         throw new Error('URL is required for fetching data.');
@@ -23,6 +27,15 @@ class ApiService {
       console.error(error);
       throw error;
     }
+  }
+
+  public async fetchAllDataAndParse<T extends BaseItem>(
+    parseItem: ([key, item]: [key: string, item: any]) => T
+  ) {
+    const data = await this.getData();
+    const dataArray: T[] = Object.entries(data).map(parseItem);
+    const sortedData = dataArray.sort((a, b) => a.index - b.index);
+    return sortedData;
   }
 }
 

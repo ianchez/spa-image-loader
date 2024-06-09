@@ -1,7 +1,8 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../app/store';
+import apiService from '../services/ApiService';
+import { parsePhotoItem } from '../utils';
 import { PhotoItem } from '../types';
-import fetchAllData from '../services/fetchAllData';
 
 enum FetchAllStatusEnum {
   data = 'data',
@@ -21,7 +22,7 @@ const initialState: FetchAllState = {
 
 export const fetchAllPhotosAsync = createAsyncThunk(
   'FETCH_ALL/PHOTOS',
-  fetchAllData
+  async () => await apiService.fetchAllDataAndParse(parsePhotoItem)
 );
 
 export const fetchAllSlice = createSlice({
