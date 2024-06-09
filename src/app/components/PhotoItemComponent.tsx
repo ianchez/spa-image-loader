@@ -13,7 +13,6 @@ const PhotoItemComponent = ({
   handleClick?: (item: PhotoItem) => void
 }) => (
   <div
-    key={item.id}
     className={`
       photo-item
       ${handleClick ? 'clickable' : ''}

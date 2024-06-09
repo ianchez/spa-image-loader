@@ -3,10 +3,12 @@ import { RootState } from '../app/store';
 
 export interface SetActiveState {
   ID: string | undefined;
+  selectedPage: number;
 }
 
 const initialState: SetActiveState = {
   ID: undefined,
+  selectedPage: 1,
 };
 
 export const setActiveSlice = createSlice({
@@ -18,12 +20,15 @@ export const setActiveSlice = createSlice({
     },
     setActiveID: (state, action) => {
       state.ID = action.payload;
+    },
+    setSelectedPage: (state, action) => {
+      state.selectedPage = action.payload;
     }
   },
 });
 
-export const { clear, setActiveID } = setActiveSlice.actions;
+export const { clear, setActiveID, setSelectedPage } = setActiveSlice.actions;
 
-export const selectActiveID = (state: RootState) => state.setActive.ID;
+export const selectActive = (state: RootState) => state.setActive;
 
 export default setActiveSlice.reducer;
