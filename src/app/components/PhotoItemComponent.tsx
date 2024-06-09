@@ -19,6 +19,7 @@ const PhotoItemComponent = ({
       ${isSelected ? 'selected' : ''}
     `}
     onClick={() => handleClick?.(item)}
+    data-testid="photo-item"
   >
     <img
       src={item.image}
