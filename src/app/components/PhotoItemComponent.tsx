@@ -1,6 +1,7 @@
 import { PhotoItem } from "../../types";
 
 import fallbackImage from '../assets/fallback.png';
+import './PhotoItemComponent.css';
 
 const PhotoItemComponent = ({
   item,

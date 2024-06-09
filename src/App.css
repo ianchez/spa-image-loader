@@ -19,3 +19,24 @@ h1 {
   font-size: 3em;
   margin: 0.8em 0;
 }
+
+.clickable:hover {
+  box-shadow: 0 0 8px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+button {
+  background-color: rgb(76, 78, 182);
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-size: 1.3em;
+  margin-top: 40px;
+  padding: 10px 20px;
+  min-width: 200px;
+}
+
+button:hover {
+  background-color: rgb(37, 0, 110);
+  font-weight: bold;
+}
