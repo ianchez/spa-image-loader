@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useAppDispatch } from "../app/hooks";
-import { fetchAllPhotosAsync } from "../features/fetchAll/fetchAllSlice";
+import { fetchAllPhotosAsync } from "../slices/fetchAllSlice";
 
 export const useFetchAllData = () => {
   const dispatch = useAppDispatch();
