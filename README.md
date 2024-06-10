@@ -1,4 +1,11 @@
-# App
+# SPA App - Images loader
+
+Single page application to fetch data from an API (photo items)
+Made with:
+- React
+- Typescript
+- Redux
+- React-router-dom
 
 ## Installation
 
